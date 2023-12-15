@@ -28,7 +28,7 @@ void mouseDragged(){
   float theta; 
   float angle_dif;
   
-  // Calculate x and y distances from (325,325), origin
+  // Calculate x and y distances from (700,325), origin
   float x_dist = mouseX - 700; 
   float y_dist = mouseY - 325;
   
