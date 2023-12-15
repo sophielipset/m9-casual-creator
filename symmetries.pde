@@ -5,6 +5,7 @@ int num_image = 1;
 
 void setup() {
   size(1400, 650);
+  background(100);
   
   // Directions
   textSize(50);
@@ -12,7 +13,8 @@ void setup() {
   textSize(30);
   text("To increase the number of symmetries, click the RIGHT key.", 40, 160);
   text("To decrease them, click the LEFT key.", 40, 200);
-  text("To change the color, click the UP or DOWN keys.", 40, 240);
+  text("To change the colors, click the UP or DOWN keys.", 40, 240);
+  text("To save your image at any time, click the ENTER key.", 40, 280);
   
   fill(fill_color, 50, 200);
 
@@ -44,6 +46,9 @@ void mouseDragged(){
     
   float new_theta, new_x, new_y;
   
+  // Update fill color 
+  fill(fill_color, x_dist, y_dist);
+  
   // Draw num_divisions different circles, equally spaced apart with angles
   for (int i = 0; i < num_divisions; i = i+1) {
     new_theta = theta + (i * angle_dif);
@@ -63,12 +68,10 @@ void keyPressed() {
   } else if (keyCode == UP && fill_color < 255) {
     // Lighten color when drawing
     fill_color += 25;
-    fill(fill_color, 50, 200);
   } else if (keyCode == DOWN && fill_color >= 25) {
     // Darken color when drawing 
     fill_color -= 25; 
-    fill(fill_color, 50, 200);  
   } else if (keyCode == ENTER) { 
-    saveFrame("slipset/Desktop/symmetries-######.png");
+    saveFrame("symmetries-######.png");
   }
 }
